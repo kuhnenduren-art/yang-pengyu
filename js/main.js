@@ -107,7 +107,8 @@
       const item = document.createElement('div');
       item.className = 'polaroid reveal';
       item.innerHTML = `
-        <img class="polaroid-img" src="photos/${photo.src}" alt="${photo.title || ''}" loading="lazy">
+        <div class="polaroid-pin"></div>
+        <img class="polaroid-img" src="photos/${photo.src}" alt="${photo.title || ''}">
         <div class="polaroid-caption">
           ${photo.title || ''}
           ${photo.date ? `<span class="polaroid-date">${photo.date}</span>` : ''}
