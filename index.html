@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>小圈 ❤️ 杨鹏宇</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══════════════ Hero 首屏 ═══════════════ -->
+<section class="hero" id="hero">
+  <div class="floating-elements" id="floatingEls"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="name-l">小圈</span>
+      <span class="heart-icon">❤️</span>
+      <span class="name-r">杨鹏宇</span>
+    </h1>
+    <p class="hero-subtitle">你是我最甜蜜的意外，也是最确定的未来 ✨</p>
+  </div>
+  <div class="scroll-hint">
+    <span>往下看我们的故事</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="scroll-arrow">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════ 在一起计数器 ═══════════════ -->
+<section class="counter-section" id="counter">
+  <div class="counter-card">
+    <p class="counter-label">我们已经在一起</p>
+    <div class="counter-number-wrapper">
+      <span class="counter-number" id="dayCount">0</span>
+      <span class="counter-unit">天</span>
+    </div>
+    <p class="counter-date">从 2023年6月5日 至今</p>
+    <div class="counter-hearts" id="counterHearts"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 照片画廊 ═══════════════ -->
+<section class="gallery-section" id="gallery">
+  <h2 class="section-title">📸 我们的瞬间</h2>
+  <p class="section-desc">每一张照片，都是我们的小世界</p>
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-empty" id="galleryEmpty">
+      <span class="empty-icon">📷</span>
+      <p>照片即将上线…</p>
+      <p class="empty-hint">把照片放到 /photos/ 文件夹<br>然后编辑 photos.json 就好啦</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 视频回忆 ═══════════════ -->
+<section class="video-section" id="videos">
+  <h2 class="section-title">🎬 我们的影像</h2>
+  <p class="section-desc">动态的记忆，更真实的美好</p>
+  <div class="video-grid" id="videoGrid">
+    <div class="video-empty" id="videoEmpty">
+      <span class="empty-icon">🎥</span>
+      <p>视频即将上线…</p>
+      <p class="empty-hint">把视频放到 /videos/ 文件夹<br>然后编辑 videos.json 就好啦</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 彩蛋入口 ═══════════════ -->
+<section class="easter-egg-section" id="easter">
+  <p class="easter-hint">发现什么了？</p>
+  <div class="easter-char" id="easterChar" title="点点看？">
+    <canvas id="miniChar" width="32" height="48"></canvas>
+  </div>
+  <div class="easter-toast" id="easterToast">
+    🎉 你发现了秘密通道！<br>
+    <a href="secret.html">点这里 → 认错神器</a>
+  </div>
+  <p class="easter-counter" id="easterCount"></p>
+</section>
+
+<!-- ═══════════════ Footer ═══════════════ -->
+<footer class="footer">
+  <p class="footer-text">Made with <span class="footer-heart">❤️</span> by 杨鹏宇 for 小圈</p>
+  <p class="footer-year">2023 — Forever</p>
+</footer>
+
+<!-- ═══════════════ Lightbox ═══════════════ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" id="lightboxBg"></div>
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

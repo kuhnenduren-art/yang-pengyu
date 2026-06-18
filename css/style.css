@@ -1,0 +1,665 @@
+/* ═══════════════════════════════════════
+   小圈 ❤️ 杨鹏宇 — 活泼色彩风格
+   Colors:
+   - Coral Pink:  #FF6B6B
+   - Sunshine:     #FFE66D
+   - Mint:         #4ECDC4
+   - Purple:       #A78BFA
+   ═══════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #FF6B6B;
+  --pink-light: #FF8E8E;
+  --yellow: #FFE66D;
+  --mint: #4ECDC4;
+  --mint-light: #7EDDD6;
+  --purple: #A78BFA;
+  --purple-light: #C4B5FD;
+  --cream: #FFF8F0;
+  --dark: #2D3436;
+  --text: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ═══════ Hero ═══════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFF5F5 0%, #FFF8F0 25%, #FFFDE7 50%, #F0FFFE 75%, #F5F3FF 100%);
+  background-size: 400% 400%;
+  animation: heroBgShift 12s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes heroBgShift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+/* ── 浮动元素 ── */
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-el {
+  position: absolute;
+  font-size: 28px;
+  animation: floatUpDown var(--dur) ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0.7;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-18px) rotate(6deg) scale(1.08); }
+  50% { transform: translateY(-8px) rotate(-4deg) scale(0.95); }
+  75% { transform: translateY(-22px) rotate(3deg) scale(1.05); }
+}
+
+/* ── Hero 内容 ── */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-title {
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.name-l {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.name-r {
+  background: linear-gradient(135deg, var(--mint), #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heart-icon {
+  font-size: clamp(36px, 8vw, 60px);
+  animation: heartBeat 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.2); }
+  60% { transform: scale(1); }
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 3vw, 20px);
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 滚动提示 ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #bbb;
+  font-size: 13px;
+  letter-spacing: 2px;
+  animation: hintFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes hintFloat {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(-8px); }
+}
+
+.scroll-arrow {
+  width: 22px;
+  height: 22px;
+}
+
+/* ═══════ 计数器 ═══════ */
+.counter-section {
+  min-height: 60vh;
+  min-height: 60dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, transparent 0%, #FFF0F0 30%, #FFF0F0 70%, transparent 100%);
+}
+
+.counter-card {
+  text-align: center;
+  background: white;
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 32px rgba(255, 107, 107, 0.15), 0 2px 8px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  max-width: 420px;
+  width: 100%;
+}
+
+.counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--mint), var(--purple));
+  border-radius: 24px 24px 0 0;
+}
+
+.counter-label {
+  font-size: 18px;
+  color: var(--text);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.counter-number-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.counter-number {
+  font-size: clamp(56px, 12vw, 80px);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-unit {
+  font-size: 22px;
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.counter-date {
+  font-size: 14px;
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.counter-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 20px;
+}
+
+.counter-heart {
+  animation: miniHeartPop 0.6s ease-out both;
+}
+
+@keyframes miniHeartPop {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  60% { transform: scale(1.3) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ═══════ 区块标题 ═══════ */
+.section-title {
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.section-desc {
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+/* ═══════ 照片画廊 — 拍立得风格 ═══════ */
+.gallery-section {
+  padding: 60px 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 28px 24px;
+  justify-items: center;
+}
+
+/* ── 拍立得相框 ── */
+.polaroid {
+  background: #fffef8;
+  padding: 14px 14px 48px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.35s;
+  max-width: 260px;
+  width: 100%;
+}
+
+/* 每张拍立得随机微倾 */
+.polaroid:nth-child(3n+1) { transform: rotate(-1.8deg); }
+.polaroid:nth-child(3n+2) { transform: rotate(1.2deg); }
+.polaroid:nth-child(3n)   { transform: rotate(-0.6deg); }
+.polaroid:nth-child(5n+2) { transform: rotate(2deg); }
+.polaroid:nth-child(5n+4) { transform: rotate(-2.2deg); }
+
+.polaroid:hover {
+  transform: scale(1.06) rotate(0deg) !important;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 5;
+}
+
+.polaroid-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #e8e4da;
+}
+
+.polaroid-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.polaroid-date {
+  display: block;
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+/* ── 拍立得胶带装饰 ── */
+.polaroid::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 44px;
+  height: 14px;
+  background: rgba(255,230,109,0.5);
+  border-radius: 1px;
+  z-index: 2;
+}
+
+.polaroid:nth-child(3n)::after {
+  background: rgba(167,139,250,0.45);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.polaroid:nth-child(5n+1)::after {
+  background: rgba(255,107,107,0.45);
+  transform: translateX(-50%) rotate(1deg);
+}
+
+/* ── 空状态 ── */
+.gallery-empty, .video-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: #ccc;
+}
+
+.empty-icon {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.gallery-empty p, .video-empty p {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 6px;
+}
+
+.empty-hint {
+  font-size: 13px !important;
+  color: #ddd !important;
+  line-height: 1.8;
+}
+
+/* ═══════ 视频 ═══════ */
+.video-section {
+  padding: 60px 20px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+.video-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.video-card .video-info {
+  padding: 14px 16px;
+}
+
+.video-card .video-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.video-card .video-date {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* ═══════ 彩蛋 ═══════ */
+.easter-egg-section {
+  padding: 50px 20px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.easter-hint {
+  font-size: 13px;
+  color: #ddd;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.easter-char {
+  display: inline-block;
+  width: 64px;
+  height: 96px;
+  cursor: pointer;
+  transition: transform 0.15s;
+  position: relative;
+  z-index: 2;
+}
+
+.easter-char:hover {
+  transform: scale(1.1);
+}
+
+.easter-char:active {
+  transform: scale(0.9);
+}
+
+.easter-char canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 64px;
+  height: 96px;
+}
+
+/* ── 彩蛋弹出 ── */
+.easter-toast {
+  display: none;
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--yellow), #FFD93D);
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 2;
+  animation: toastPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 24px rgba(255, 230, 109, 0.4);
+}
+
+.easter-toast.show {
+  display: inline-block;
+}
+
+.easter-toast a {
+  color: var(--pink);
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 2px dashed var(--pink);
+}
+
+@keyframes toastPop {
+  0% { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.easter-counter {
+  font-size: 11px;
+  color: #eee;
+  margin-top: 6px;
+  min-height: 18px;
+}
+
+/* ═══════ Footer ═══════ */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: #bbb;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.footer-heart {
+  color: var(--pink);
+  display: inline-block;
+  animation: heartBeat 1.2s ease-in-out infinite;
+  font-size: 16px;
+}
+
+.footer-year {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #ddd;
+}
+
+/* ═══════ Lightbox ═══════ */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  cursor: pointer;
+}
+
+.lightbox-img {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  z-index: 2;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ═══════ 响应式 ═══════ */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 10px;
+  }
+  .polaroid {
+    padding: 10px 10px 38px;
+    max-width: 100%;
+  }
+  .polaroid::after {
+    width: 34px;
+    height: 10px;
+    top: -6px;
+  }
+  .polaroid-caption {
+    font-size: 12px;
+    bottom: 8px;
+    left: 10px;
+    right: 10px;
+  }
+  .polaroid:nth-child(3n+1) { transform: rotate(-1.2deg); }
+  .polaroid:nth-child(3n+2) { transform: rotate(0.8deg); }
+  .polaroid:nth-child(3n)   { transform: rotate(-0.4deg); }
+  .polaroid:nth-child(5n+2) { transform: rotate(1.4deg); }
+  .polaroid:nth-child(5n+4) { transform: rotate(-1.6deg); }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .counter-card {
+    padding: 30px 20px;
+  }
+  .lightbox-img {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+}
+
+/* ═══════ 滚入动画 ═══════ */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+}
+
+/* 拍立得的滚入用上浮 */
+.polaroid.reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease, margin-top 0.6s ease;
+  margin-top: 24px;
+}
+
+.polaroid.reveal.visible {
+  opacity: 1;
+  margin-top: 0;
+}
